@@ -22,7 +22,7 @@ def apply_zscore_analisys(dataframe):
     return dataframe
 
 
-st.title("Exercício 1 - Z-Score Modificado")
+st.title("Exercício 1 - Modified Z-Score")
 st.header("Análise de taxa de Participação no SAT")
 st.subheader("Visualização do Dataset")
 
@@ -35,8 +35,8 @@ sat_ct_df = st.session_state.get("sat_ct_df")
 st.dataframe(sat_ct_df)
 
 
-st.subheader("A. Análise das Anomalias com Z-Score modificado")
-st.write("Cálculo do Z-Score Modificado")
+st.subheader("A. Análise das Anomalias com Modified Z-Score")
+st.write("Cálculo do Modified Z-Score")
 st.code(
     """
     mod_zscore_participation_rate, mad_goals = modified_score(sat_ct_df["Participation Rate"])
@@ -160,7 +160,7 @@ st.markdown(
 **Resposta:**
 
 Não. Usando o Threshold -2, além dos Distritos *New Britain*, *Windham*, *Eastern Connecticut Regional Educational Service* e *Stamford Academy*,
-o Distrito de *New London* também foi considerado um outlier na Análise com Z-Score modificado.
+o Distrito de *New London* também foi considerado um outlier na Análise com Modified Z-Score.
 """
 )
 
@@ -183,9 +183,9 @@ with st.expander(label="Anomalias detectadas", expanded=True):
 st.subheader("C. Discuta as descobertas")
 st.markdown(
     """
-O Z-Score modificado é menos afetado por valores extremos porque ele usa a mediana e o desvio absoluto mediano.
+O Modified Z-Score é menos afetado por valores extremos porque ele usa a mediana e o desvio absoluto mediano.
 
 Isso significa que ele pode identificar pontos como anomalias que não seria identificados pelo Z-Score.
-Esta é a razão para New London ter sido classificado como anomalia ao usar o Z-Score Modificado.
+Esta é a razão para New London ter sido classificado como anomalia ao usar o Modified Z-Score.
 """
 )
