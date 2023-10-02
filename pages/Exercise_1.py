@@ -4,16 +4,7 @@ import pandas as pd
 import streamlit as st
 from scipy.stats import zscore
 
-
-def modified_score(data, consistency_correction=1.4826):
-    median = np.median(data)
-
-    deviation_form_med = np.array(data) - median
-
-    mad = np.median(np.abs(deviation_form_med))
-    mod_zscore = deviation_form_med / (consistency_correction * mad)
-
-    return mod_zscore, mad
+from utils.stats import modified_zscore
 
 
 def apply_zscore_analisys(dataframe):
@@ -39,13 +30,13 @@ st.subheader("A. Análise das Anomalias com Modified Z-Score")
 st.write("Cálculo do Modified Z-Score")
 st.code(
     """
-    mod_zscore_participation_rate, mad_goals = modified_score(sat_ct_df["Participation Rate"])
+    mod_zscore_participation_rate, mad_goals = modified_zscore(sat_ct_df["Participation Rate"])
     sat_ct_df = sat_ct_df.assign(mod_zscore=mod_zscore_participation_rate)
     sat_ct_df.head()
 """
 )
 
-mod_zscore_participation_rate, mad_goals = modified_score(
+mod_zscore_participation_rate, mad_goals = modified_zscore(
     sat_ct_df["Participation Rate"]
 )
 sat_ct_df = sat_ct_df.assign(mod_zscore=mod_zscore_participation_rate)
@@ -102,7 +93,7 @@ plt.show()
 """
 )
 
-threshold = st.number_input("Valor do Thresold", value=-2.0, step=0.1, format="%.2f")
+threshold = st.number_input("Valor do Threshold", value=-2.0, step=0.1, format="%.2f")
 
 fig, (ax0, ax1) = plt.subplots(1, 2, figsize=(10, 5))
 
