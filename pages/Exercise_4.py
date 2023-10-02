@@ -127,11 +127,11 @@ st.sidebar.info(get_key_error_message_info())
 st.title("Exercício 4 - Aplicar KNN e usar KMeans para Detecção de Anomalias")
 st.subheader("Visualização do Dataset")
 
-if "weather_df" not in st.session_state:
+if "weather_df_exercise4" not in st.session_state:
     weather_df = pd.read_csv("datasets/weather.csv")
-    st.session_state["weather_df"] = weather_df
+    st.session_state["weather_df_exercise4"] = weather_df
 
-weather_df = st.session_state.get("weather_df")
+weather_df = st.session_state.get("weather_df_exercise4")
 st.dataframe(weather_df)
 
 # Preprocessing

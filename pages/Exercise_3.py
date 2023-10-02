@@ -27,11 +27,11 @@ st.title(
 )
 st.subheader("Visualização do Dataset")
 
-if "weather_df" not in st.session_state:
+if "weather_df_exercise3" not in st.session_state:
     weather_df = pd.read_csv("datasets/mediadiaria.csv")
-    st.session_state["weather_df"] = weather_df
+    st.session_state["weather_df_exercise3"] = weather_df
 
-weather_df = st.session_state.get("weather_df")
+weather_df = st.session_state.get("weather_df_exercise3")
 st.dataframe(weather_df)
 
 st.subheader("Adicionando Temperaturas Anômalas ao Dataset")
