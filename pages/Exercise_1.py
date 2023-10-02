@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from scipy.stats import zscore
 
+from utils.info_messages import get_key_error_message_info
 from utils.stats import modified_zscore
 
 
@@ -12,6 +13,8 @@ def apply_zscore_analisys(dataframe):
     dataframe = dataframe.assign(zscore=zscore_participation_rate)
     return dataframe
 
+
+st.sidebar.info(get_key_error_message_info())
 
 st.title("Exercício 1 - Modified Z-Score")
 st.header("Análise de taxa de Participação no SAT")

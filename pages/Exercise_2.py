@@ -4,7 +4,10 @@ import pandas as pd
 import streamlit as st
 from scipy.stats import zscore
 
+from utils.info_messages import get_key_error_message_info
 from utils.stats import modified_zscore
+
+st.sidebar.info(get_key_error_message_info())
 
 st.title("Exercício 2 - Z-Score e Modified Z-Score em *Temperatura* e *Radiação*")
 st.subheader("Visualização do Dataset")

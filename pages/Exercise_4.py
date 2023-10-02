@@ -5,6 +5,8 @@ import streamlit as st
 from sklearn.cluster import KMeans
 from sklearn.neighbors import NearestNeighbors
 
+from utils.info_messages import get_key_error_message_info
+
 
 def plot_point_and_k_neighbors(X, highlight_index, n_neighbors=2):
     "Plota os pontos em X e mostra os n_vizinhos do ponto destacado"
@@ -119,6 +121,8 @@ def plt_anomalies_kmeans(data, n_anomalies):
 
     st.pyplot(fig)
 
+
+st.sidebar.info(get_key_error_message_info())
 
 st.title(
     "Exercício 3 - Aplicar SVM nos dados de meteorologia e imprimir as top 5 anomalias"

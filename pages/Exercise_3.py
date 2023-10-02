@@ -3,6 +3,8 @@ import pandas as pd
 import streamlit as st
 from sklearn.svm import OneClassSVM
 
+from utils.info_messages import get_key_error_message_info
+
 
 def svm_anomaly_scores(obs):
     oc_svm = OneClassSVM(gamma="auto").fit(obs)
@@ -17,6 +19,8 @@ def svm_anomaly_scores(obs):
     # in the range [-1, 1] with positive values indicating anomalies
     return -scores / max_score
 
+
+st.sidebar.info(get_key_error_message_info())
 
 st.title(
     "Exercício 3 - Aplicar SVM nos dados de meteorologia e imprimir as top 5 anomalias"

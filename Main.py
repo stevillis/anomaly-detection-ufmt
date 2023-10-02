@@ -1,5 +1,8 @@
-import numpy as np
 import streamlit as st
+
+from utils.info_messages import get_key_error_message_info
+
+st.sidebar.info(get_key_error_message_info())
 
 st.title("Pós Graduação em Gestão e Ciência de Dados - UFMT")
 st.header("Detecção de Anomalias")
