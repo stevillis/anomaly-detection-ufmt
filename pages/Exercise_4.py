@@ -124,9 +124,7 @@ def plt_anomalies_kmeans(data, n_anomalies):
 
 st.sidebar.info(get_key_error_message_info())
 
-st.title(
-    "Exercício 3 - Aplicar SVM nos dados de meteorologia e imprimir as top 5 anomalias"
-)
+st.title("Exercício 4 - Aplicar KNN e usar KMeans para Detecção de Anomalias")
 st.subheader("Visualização do Dataset")
 
 if "weather_df" not in st.session_state:
@@ -212,7 +210,6 @@ for label in range(n_clusters):
 
 ax.legend()
 st.pyplot(fig)
-
 
 st.markdown("##### Detecção de Anomalias com 3 Clusters")
 

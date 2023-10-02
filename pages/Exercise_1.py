@@ -25,9 +25,7 @@ if "sat_ct_df" not in st.session_state:
     st.session_state["sat_ct_df"] = sat_ct_df
 
 sat_ct_df = st.session_state.get("sat_ct_df")
-
 st.dataframe(sat_ct_df)
-
 
 st.subheader("A. Análise das Anomalias com Modified Z-Score")
 st.write("Cálculo do Modified Z-Score")

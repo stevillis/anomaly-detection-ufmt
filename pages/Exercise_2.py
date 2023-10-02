@@ -110,7 +110,6 @@ with st.expander(label="Anomalias detectadas", expanded=True):
         ]
     )
 
-
 st.subheader("Radiação")
 threshold_radiation = st.number_input(
     "Valor do Threshold", value=-4.0, step=0.5, format="%.2f"
